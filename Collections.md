@@ -30,10 +30,76 @@ public class StackExample {
     }
 }
 ```
+---
+## **2. Queue in Java**
 
+A **Queue** is a **FIFO (First In, First Out)** data structure where elements are added at the rear and removed from the front. It is part of Java's **Collection Framework** and is implemented using the `Queue` interface in `java.util` package.
+
+### **Main Methods:**
+- `add(E e)` – Inserts an element into the queue (throws exception if full).
+- `offer(E e)` – Inserts an element into the queue (returns `false` if full).
+- `poll()` – Retrieves and removes the first element (returns `null` if empty).
+- `remove()` – Retrieves and removes the first element (throws exception if empty).
+- `peek()` – Retrieves but does **not remove** the first element (returns `null` if empty).
+- `element()` – Retrieves but does **not remove** the first element (throws exception if empty).
+- `isEmpty()` – Checks if the queue is empty.
+- `size()` – Returns the number of elements in the queue.
+
+### **Example:**
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueExample {
+    public static void main(String[] args) {
+        Queue<Integer> queue = new LinkedList<>();
+        
+        queue.add(10);
+        queue.add(20);
+        queue.add(30);
+
+        System.out.println(queue.poll()); // Output: 10 (removes first element)
+        System.out.println(queue.peek()); // Output: 20 (does not remove)
+    }
+}
+```
 ---
 
-## **2. Vector**
+## **3. Deque (Double-Ended Queue) in Java**
+
+A **Deque** (pronounced "deck") is a **double-ended queue** that allows insertion and removal from **both ends** (front and rear). It extends the `Queue` interface and is implemented using `ArrayDeque` or `LinkedList`.
+
+### **Main Methods:**
+- `addFirst(E e)` – Inserts an element at the front.
+- `addLast(E e)` – Inserts an element at the rear.
+- `offerFirst(E e)` – Inserts an element at the front (returns `false` if full).
+- `offerLast(E e)` – Inserts an element at the rear (returns `false` if full).
+- `pollFirst()` – Retrieves and removes the first element (returns `null` if empty).
+- `pollLast()` – Retrieves and removes the last element (returns `null` if empty).
+- `peekFirst()` – Retrieves but does **not remove** the first element.
+- `peekLast()` – Retrieves but does **not remove** the last element.
+
+### **Example:**
+```java
+import java.util.Deque;
+import java.util.ArrayDeque;
+
+public class DequeExample {
+    public static void main(String[] args) {
+        Deque<String> deque = new ArrayDeque<>();
+        
+        deque.addFirst("Apple");
+        deque.addLast("Banana");
+        deque.addFirst("Cherry");
+
+        System.out.println(deque.pollFirst()); // Output: Cherry (removes first element)
+        System.out.println(deque.pollLast());  // Output: Banana (removes last element)
+    }
+}
+```
+---
+
+## **4. Vector**
 A **Vector** is a **resizable array** that is synchronized (thread-safe). It is similar to an `ArrayList` but slower due to synchronization.
 
 ### **Main Methods:**
@@ -63,7 +129,7 @@ public class VectorExample {
 
 ---
 
-## **3. List (Ordered Collection)**
+## **5. List (Ordered Collection)**
 A **List** is an **ordered collection** that allows duplicate elements.
 
 ### **(i) LinkedList**
